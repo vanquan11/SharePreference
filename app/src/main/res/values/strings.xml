@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">SharePreference</string>
+    <string name="ac">Acount</string>
+    <string name="pw">Password</string>
+    <string name="lg">Login</string>
+</resources>
