@@ -41,7 +41,8 @@
         android:layout_width="0dp"
         android:layout_marginLeft="@dimen/sp_10"
         android:layout_height="wrap_content"
-        android:hint="@string/pw"
+        android:text="123456"
+        android:inputType="textPassword"
         tools:ignore="MissingConstraints"></EditText>
 
     <Button

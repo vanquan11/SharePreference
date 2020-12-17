@@ -13,4 +13,4 @@ data class DataModel(
     @SerializedName("SessionId") var sessionId: String = "",
     @SerializedName("UserId") var userId: String = "",
     @SerializedName("UserName") var userName: String = ""
-)
+) : Serializable
