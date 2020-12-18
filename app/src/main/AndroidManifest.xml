@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SharePreference"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DataPreferenceActivity"></activity>
+        <activity android:name=".AddMerchandiseActivity"></activity>
+        <activity android:name=".DataPreferenceActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
