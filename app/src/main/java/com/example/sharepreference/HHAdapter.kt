@@ -8,7 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.itemhh.view.*
 
-class HHAdapter(private val hhList: List<Result>, private  val longClick : (View) -> Unit) : RecyclerView.Adapter<HHAdapter.ViewHolder>() {
+class HHAdapter(private val hhList: List<Result>, private  val longClick : (View, Result) -> Unit) : RecyclerView.Adapter<HHAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -23,20 +23,22 @@ class HHAdapter(private val hhList: List<Result>, private  val longClick : (View
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
-        viewHolder.itemView.txtId.text =  hhList[position].id.toString()
+        viewHolder.itemView.txtId.text = hhList[position].id.toString()
         viewHolder.itemView.txtName.text =  hhList[position].name
         viewHolder.itemView.txtPrice.text =  hhList[position].price.toString()
         viewHolder.itemView.txtPriceLarg.text =  hhList[position].priceLargeUnit.toString()
-        viewHolder.itemView.txtcreateDate.text =  hhList[position].createdDate
+        viewHolder.itemView.txtcreateDate.text =   hhList[position].createdDate
         viewHolder.itemView.txtModifDate.text =  hhList[position].modifiedDate
         viewHolder.itemView.txtMaxQuan.text =  hhList[position].maxQuantity.toString()
         viewHolder.itemView.txtUnit.text =  hhList[position].unit
 
+
         viewHolder.itemView.setOnLongClickListener {
-            longClick(it)
+            longClick(it, hhList[position])
             true
         }
     }
 
     override fun getItemCount() = hhList.size
+
 }
