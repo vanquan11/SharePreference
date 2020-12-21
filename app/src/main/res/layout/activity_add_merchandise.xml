@@ -22,7 +22,6 @@
         app:layout_constraintTop_toTopOf="@id/txtIdAdd"
         app:layout_constraintBottom_toBottomOf="@id/txtIdAdd"
         android:gravity="left"
-        android:text="100"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
@@ -42,7 +41,7 @@
         app:layout_constraintLeft_toLeftOf="@id/edtIdAdd"
         app:layout_constraintTop_toBottomOf="@id/edtIdAdd"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="100"
+        android:text="vq11"
         android:gravity="left"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>

@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnLogin -> {
                 val user: String = edtAc.text.toString()
                 val password: String = edtPw.text.toString()
+
                 getData(user, password)
             }
 

@@ -3,4 +3,7 @@
     <item
         android:id="@+id/add_menu"
         android:title="Add" />
+    <item
+        android:id="@+id/sync_menu"
+        android:title="Sync"/>
 </menu>

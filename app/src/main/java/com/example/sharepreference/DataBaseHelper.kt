@@ -48,6 +48,23 @@ class DataBaseHelper (var context: Context) : SQLiteOpenHelper(context, DATABASE
         }
     }
 
+    fun writeData(arrMerchandise: MutableList<Result>) {
+        val database = this.writableDatabase
+        for (item in arrMerchandise){
+            val contentValues = ContentValues()
+            contentValues.put(COL_ID, item.id)
+            contentValues.put(COL_NAME, item.name)
+            contentValues.put(COL_PRICE, item.price)
+            contentValues.put(COL_PRICE_LARGEUNIT, item.priceLargeUnit)
+            contentValues.put(COL_CREATED_DATE, item.createdDate)
+            contentValues.put(COL_MODIFIED_DATE, item.modifiedDate)
+            contentValues.put(COL_MAXQUANTITYMAX, item.maxQuantity)
+            contentValues.put(COL_UNIT, item.unit)
+            database.insert(TABLENAME, null, contentValues)
+        }
+    }
+
+
     fun readData(): MutableList<Result> {
         val list: MutableList<Result> = ArrayList()
         val db = this.readableDatabase
@@ -73,11 +90,21 @@ class DataBaseHelper (var context: Context) : SQLiteOpenHelper(context, DATABASE
 
     fun deleteData(id : Int){
         val database = this.writableDatabase
-        val result = database.delete(TABLENAME, "${COL_ID} = ${id}",  null)
+        val result = database.delete(TABLENAME, "$COL_ID = $id",  null)
         if (result == 0){
             Log.d("vq", "Fail delete")
         }else{
             Log.d("vq", "Success delete")
+        }
+    }
+
+    fun deleteDatabase(){
+        val database = this.writableDatabase
+        val result = database.delete(TABLENAME, null, null)
+        if (result == 0){
+//            Log.d("vq", "Fail deleteDatabase")
+        }else{
+//            Log.d("vq", "Success deleteDatabase")
         }
     }
 
@@ -93,7 +120,7 @@ class DataBaseHelper (var context: Context) : SQLiteOpenHelper(context, DATABASE
         contentValues.put(COL_MAXQUANTITYMAX, merchandise.maxQuantity)
         contentValues.put(COL_UNIT, merchandise.unit)
 
-        val result = database.update(TABLENAME, contentValues, "${COL_ID} = ${id}", null )
+        val result = database.update(TABLENAME, contentValues, "$COL_ID = $id", null )
         if (result == (0)) {
             Log.d("vq", "Fail update")
         }
