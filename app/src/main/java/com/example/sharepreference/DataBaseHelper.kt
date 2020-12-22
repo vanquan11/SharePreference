@@ -28,7 +28,7 @@ class DataBaseHelper (var context: Context) : SQLiteOpenHelper(context, DATABASE
         TODO("Not yet implemented")
     }
 
-    fun insertData(merchandise: Result) {
+    fun insertData(merchandise: ObResponsPost) {
         val database = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COL_ID, merchandise.id)
@@ -36,9 +36,10 @@ class DataBaseHelper (var context: Context) : SQLiteOpenHelper(context, DATABASE
         contentValues.put(COL_PRICE, merchandise.price)
         contentValues.put(COL_PRICE_LARGEUNIT, merchandise.priceLargeUnit)
         contentValues.put(COL_CREATED_DATE, merchandise.createdDate)
-        contentValues.put(COL_MODIFIED_DATE, merchandise.modifiedDate)
-        contentValues.put(COL_MAXQUANTITYMAX, merchandise.maxQuantity)
-        contentValues.put(COL_UNIT, merchandise.unit)
+//        contentValues.put(COL_MODIFIED_DATE, merchandise.modifiedDate)
+//        contentValues.put(COL_MAXQUANTITYMAX, merchandise.maxQuantity)
+//        contentValues.put(COL_UNIT, merchandise.unit)
+
         val result = database.insert(TABLENAME, null, contentValues)
         if (result == (0).toLong()) {
             Log.d("vq", "Fail insert")
@@ -75,7 +76,7 @@ class DataBaseHelper (var context: Context) : SQLiteOpenHelper(context, DATABASE
                 val merchandise = Result()
                 merchandise.id = result.getString(result.getColumnIndex(COL_ID)).toInt()
                 merchandise.name = result.getString(result.getColumnIndex(COL_NAME))
-                merchandise.price = result.getString(result.getColumnIndex(COL_PRICE)).toInt()
+                merchandise.price = result.getString(result.getColumnIndex(COL_PRICE)).toLong()
                 merchandise.priceLargeUnit = result.getString(result.getColumnIndex(COL_PRICE_LARGEUNIT)).toInt()
                 merchandise.createdDate = result.getString(result.getColumnIndex(COL_CREATED_DATE))
                 merchandise.modifiedDate = result.getString(result.getColumnIndex(COL_MODIFIED_DATE))
@@ -102,13 +103,11 @@ class DataBaseHelper (var context: Context) : SQLiteOpenHelper(context, DATABASE
         val database = this.writableDatabase
         val result = database.delete(TABLENAME, null, null)
         if (result == 0){
-//            Log.d("vq", "Fail deleteDatabase")
         }else{
-//            Log.d("vq", "Success deleteDatabase")
         }
     }
 
-    fun updateData(merchandise: Result, id : Int){
+    fun updateData(merchandise: ObResponsPost, id: Int){
         val database = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COL_ID, merchandise.id)
@@ -116,9 +115,9 @@ class DataBaseHelper (var context: Context) : SQLiteOpenHelper(context, DATABASE
         contentValues.put(COL_PRICE, merchandise.price)
         contentValues.put(COL_PRICE_LARGEUNIT, merchandise.priceLargeUnit)
         contentValues.put(COL_CREATED_DATE, merchandise.createdDate)
-        contentValues.put(COL_MODIFIED_DATE, merchandise.modifiedDate)
-        contentValues.put(COL_MAXQUANTITYMAX, merchandise.maxQuantity)
-        contentValues.put(COL_UNIT, merchandise.unit)
+//        contentValues.put(COL_MODIFIED_DATE, merchandise.modifiedDate)
+//        contentValues.put(COL_MAXQUANTITYMAX, merchandise.maxQuantity)
+//        contentValues.put(COL_UNIT, merchandise.unit)
 
         val result = database.update(TABLENAME, contentValues, "$COL_ID = $id", null )
         if (result == (0)) {

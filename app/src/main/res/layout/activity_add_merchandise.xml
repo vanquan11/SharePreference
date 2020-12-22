@@ -22,6 +22,7 @@
         app:layout_constraintTop_toTopOf="@id/txtIdAdd"
         app:layout_constraintBottom_toBottomOf="@id/txtIdAdd"
         android:gravity="left"
+        android:enabled="false"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
@@ -81,7 +82,6 @@
         app:layout_constraintLeft_toLeftOf="@id/edtIdAdd"
         app:layout_constraintTop_toBottomOf="@id/edtPriceAdd"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="100"
         android:gravity="left"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
@@ -101,7 +101,6 @@
         app:layout_constraintLeft_toLeftOf="@id/edtIdAdd"
         app:layout_constraintTop_toBottomOf="@id/edtPriceLargeUnitAdd"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="100"
         android:gravity="left"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
@@ -121,7 +120,6 @@
         app:layout_constraintLeft_toLeftOf="@id/edtIdAdd"
         app:layout_constraintTop_toBottomOf="@id/edtCreateDateAdd"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="100"
         android:gravity="left"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
@@ -141,7 +139,6 @@
         app:layout_constraintLeft_toLeftOf="@id/edtIdAdd"
         app:layout_constraintTop_toBottomOf="@id/edtModifDateAdd"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="100"
         android:gravity="left"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
@@ -161,7 +158,6 @@
         app:layout_constraintLeft_toLeftOf="@id/edtIdAdd"
         app:layout_constraintTop_toBottomOf="@id/edtMaxQuanAdd"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="100"
         android:gravity="left"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>

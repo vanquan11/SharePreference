@@ -9,6 +9,7 @@ object PreferenceHelper {
     val SESSION_ID = "SESSIONID"
     val USER_NAME = "USERNAME"
 
+
     fun defaultPreference(context: Context): SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
 
     public fun customPreference(context: Context, name: String): SharedPreferences = context.getSharedPreferences(name, Context.MODE_PRIVATE)
@@ -31,6 +32,7 @@ object PreferenceHelper {
             else -> error("Only primitive types can be stored in SharedPreferences")
         }
     }
+
 
     var SharedPreferences.userId
         get() = getString(USER_ID, "")

@@ -44,20 +44,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         APIClient.getClient.getDataUser(userAc, password).enqueue(object : Callback<DataModel> {
             override fun onResponse(call: Call<DataModel>?, response: Response<DataModel>?) {
                 if (response != null && response.isSuccessful) {
-                    var dataModel: DataModel
-                    dataModel = response?.body() ?: DataModel(responseStatus = "")
+                    val dataModel: DataModel = response.body() ?: DataModel(responseStatus = "")
                     prefs.userId = dataModel.userId
                     prefs.sessionId = dataModel.sessionId
                     prefs.userName = dataModel.userName
 
                     intent = Intent(this@MainActivity, DataPreferenceActivity::class.java)
                     val bundle = Bundle()
-                    bundle.putSerializable("key", response?.body() ?: DataModel(responseStatus = ""))
+                    bundle.putSerializable("key", response.body() ?: DataModel(responseStatus = ""))
                     intent.putExtra("bundle", bundle)
                     startActivity(intent)
-                Log.d("vq", "" + prefs.userId + "," + prefs.sessionId + "," + prefs.userName)
                 } else {
-                    Log.e("vq","error ${response?.message()}")
+                    Log.e("vq","errorAccount ${response?.message()}")
                 }
             }
 
